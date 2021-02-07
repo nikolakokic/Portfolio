@@ -1,0 +1,202 @@
+//Widthscreens
+@include mediaXl {
+  body {
+    overflow: visible;
+  }
+  .about-info {
+    margin-bottom: -700px;
+    grid-template-areas:
+      "bioimage"
+      "bio"
+      "job1"
+      "job2"
+      "job3";
+    grid-template-columns: 1fr;
+    justify-content: center;
+  }
+}
+//Desktops&Laptops
+@include mediaLg {
+  body {
+    overflow: visible;
+  }
+  body #home h2.sm-heading {
+    width: 70%;
+  }
+  .about-info {
+    margin-bottom: -700px;
+    grid-template-areas:
+      "bioimage"
+      "bio"
+      "job1"
+      "job2"
+      "job3";
+    grid-template-columns: 1fr;
+    justify-content: center;
+    .bio-img {
+      justify-self: center;
+    }
+  }
+  .projects {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+//Tablets & Small Laptops
+@include mediaMd {
+  body {
+    overflow: visible;
+  }
+  main {
+    flex-direction: column;
+  }
+
+  body .top-tags {
+    top: 10px;
+  }
+  body #home h2.sm-heading {
+    width: 70%;
+  }
+  body #home h2.sm-heading::before {
+    animation: type 2s steps(20) 3s normal both;
+  }
+  body #home h1.bracket-two {
+    animation: type 1s steps(1) 4s normal both;
+    font-size: 1.5rem;
+  }
+  body #home h1.bracket-one {
+    font-size: 1.5rem;
+  }
+  #home .icons {
+    animation: jump 1.2s ease-in 4.5s normal both;
+  }
+
+  body main .main-right .card {
+    height: 100px;
+    width: 100px;
+    margin-bottom: 200px;
+  }
+
+  //Overlay
+  ul.menu-nav,
+  div.menu-branding {
+    float: none;
+    width: 100%;
+    min-height: 0;
+    &.show {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  .menu-nav {
+    height: 75vh;
+    transform: translate3d(-100%, 0, 0);
+    font-size: 24px;
+  }
+
+  .menu-branding {
+    height: 25vh;
+    transform: translate3d(100%, 0, 0);
+    .portrait {
+      height: 150px;
+      width: 150px;
+    }
+  }
+  /* ABOUT */
+  .about-info {
+    grid-template-areas:
+      "bioimage"
+      "bio"
+      "job1"
+      "job2"
+      "job3";
+    grid-template-columns: 1fr;
+  }
+  .lg-heading-about {
+    margin-left: 100px;
+  }
+  .sm-heading-about {
+    margin-left: 100px;
+    text-align: center;
+  }
+}
+//Smartphones
+@include mediaSm {
+  main .bottom-tags {
+    bottom: 40px;
+    left: 40px;
+  }
+
+  .main-right {
+    opacity: 0;
+  }
+  .top-tags {
+    margin-top: 100px;
+    left: 40px;
+  }
+  body #home h1.lg-heading {
+    font-size: 2rem;
+  }
+  body #home h2.sm-heading {
+    font-size: 1.3rem;
+    width: 110%;
+  }
+  body main .main-right .card {
+    height: 100px;
+    width: 100px;
+    margin-bottom: 200px;
+  }
+  .about-info {
+    grid-template-areas:
+      "bioimage"
+      "bio"
+      "job1"
+      "job2"
+      "job3";
+    grid-template-columns: 300px;
+    .img-wraper {
+      gap: 0px;
+      justify-self: center;
+      padding: 0px;
+    }
+    .img-wraper-job1 {
+      margin-top: 20px;
+      gap: 20px;
+      justify-self: center;
+      padding: 0px;
+    }
+  }
+  h1.lg-heading-about {
+    font-size: 2rem;
+    text-align: center;
+  }
+  h2.sm-heading-about {
+    font-size: 1rem;
+
+    width: 290px;
+  }
+
+  .projects {
+    grid-template-columns: 1fr;
+  }
+  body {
+    overflow: visible;
+  }
+  .boxes div {
+    font-size: 1rem;
+    border: 3px white solid;
+    padding: 1rem 1.5rem;
+    margin-bottom: 3rem;
+    &:hover {
+      padding: 1rem 2rem;
+    }
+  }
+  .top-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 80px;
+  }
+  .menu-branding .portrait {
+    background-size: 150px;
+  }
+}

@@ -1,0 +1,255 @@
+@import "config";
+@import "menu";
+@import "about";
+@import "work";
+@import "contact";
+* {
+  box-sizing: border-box;
+}
+
+body {
+  @include background;
+  background: $primary-color;
+  height: 100%;
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+}
+
+//Headings
+.top-tags {
+  position: absolute;
+  left: 80px;
+  top: 80px;
+  color: #515152;
+  font-family: "La Belle Aurore", cursive;
+  font-size: 1.2rem;
+}
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 400;
+
+  &.lg-heading {
+    font-size: 4rem;
+    animation: type 2s steps(13) 1s normal both;
+    white-space: nowrap;
+    overflow: hidden;
+    color: #fff;
+  }
+
+  &.sm-heading {
+    position: relative;
+    margin-bottom: 2rem;
+    padding: 0.2rem 1rem;
+    background: lighten($primary-color, 2);
+    color: transparent;
+    width: 50%;
+    &::before {
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 40px;
+      color: #fff;
+      overflow: hidden;
+      animation: type 2s steps(20) 2s normal both;
+      white-space: nowrap;
+    }
+  }
+}
+.bracket-one {
+  font-family: "La Belle Aurore", cursive;
+  color: #515152;
+  font-size: 2rem;
+  animation: type 3s steps(5) normal both;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.bracket-two {
+  position: relative;
+  left: 20%;
+  color: #515152;
+  font-family: "La Belle Aurore", cursive;
+  font-size: 2rem;
+  animation: type 2s steps(2) 2.5s normal both;
+  white-space: nowrap;
+  overflow: hidden;
+}
+@keyframes type {
+  0% {
+    width: 0;
+  }
+  50% {
+    width: 50%;
+  }
+
+  100% {
+    width: 100%;
+    border: none;
+  }
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+header {
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+}
+
+.text-secondary {
+  color: $secondary-color;
+}
+
+main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4rem;
+  /*   height: 100vh; */
+  max-height: 100vh;
+
+  .main-left {
+    width: 100%;
+    margin-top: 100px;
+  }
+  /* UPITAN DEO */
+  .main-right {
+    width: 50%;
+    .card {
+      position: relative;
+      width: 300px;
+      height: 500px;
+      background: transparent;
+      opacity: 0.8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 150px;
+      overflow: hidden;
+
+      & span {
+        transition: 0.5;
+        &:nth-child(1) {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 3px;
+          background: linear-gradient(to right, transparent, $secondary-color);
+          animation: animate1 2s linear infinite;
+
+          @keyframes animate1 {
+            0% {
+              transform: translateX(-100%);
+            }
+            100% {
+              transform: translateX(100%);
+            }
+          }
+        }
+        &:nth-child(2) {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 3px;
+          height: 100%;
+          opacity: 0;
+          background: linear-gradient(to bottom, transparent, $secondary-color);
+          animation: animate2 2s linear infinite;
+
+          animation-delay: 1s;
+          @keyframes animate2 {
+            0% {
+              opacity: 1;
+              transform: translateY(-100%);
+            }
+            100% {
+              transform: translateY(100%);
+            }
+          }
+        }
+        &:nth-child(3) {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 3px;
+          background: linear-gradient(to left, transparent, $secondary-color);
+          animation: animate3 2s linear infinite;
+          @keyframes animate3 {
+            0% {
+              transform: translateX(100%);
+            }
+            100% {
+              transform: translateX(-100%);
+            }
+          }
+        }
+        &:nth-child(4) {
+          position: absolute;
+          opacity: 0;
+          top: 0;
+          left: 0;
+          width: 3px;
+          height: 100%;
+          background: linear-gradient(to top, transparent, $secondary-color);
+          animation: animate4 2s linear infinite;
+
+          animation-delay: 1s;
+          @keyframes animate4 {
+            0% {
+              opacity: 1;
+              transform: translateY(100%);
+            }
+            100% {
+              transform: translateY(-100%);
+            }
+          }
+        }
+      }
+    }
+  }
+  /* UPITAN DEO */
+  .icons {
+    margin-top: 1rem;
+    animation: jump 1.2s ease-in 3s normal both;
+
+    a {
+      padding: 0.4rem;
+
+      &:hover {
+        color: $secondary-color;
+        @include easeOut();
+      }
+    }
+  }
+
+  &#home {
+    overflow: hidden;
+  }
+  .bottom-tags {
+    position: absolute;
+    bottom: 80px;
+    left: 80px;
+    color: #515152;
+    font-family: "La Belle Aurore", cursive;
+    font-size: 1.2rem;
+  }
+}
+@keyframes jump {
+  0% {
+    transform: translateX(-700px);
+  }
+
+  50% {
+    transform: translateX(0px);
+  }
+}
+@import "mobile";
